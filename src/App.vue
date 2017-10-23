@@ -104,7 +104,7 @@
         drawer: true,
         fixed: false,
         items: [{
-          icon: 'bubble_chart',
+          icon: 'home',
           title: 'Inspire'
         }],
         miniVariant: false,
