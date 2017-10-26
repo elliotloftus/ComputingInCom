@@ -1,98 +1,32 @@
 <template>
   <v-app light>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      enable-resize-watcher
-      app
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <v-list-tile-action>
-            <v-icon light v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar fixed app :clipped-left="clipped">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
-      <v-btn
-        icon
-        light
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-toolbar>
+      <v-toolbar-title>Furman @CinC</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        light
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
+      <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn :to = "home.url" > {{home.title}}</v-btn>
+        <v-btn :to = "student.url" > {{student.title}}</v-btn>
+        <v-btn :to = "faculty.url">  {{faculty.title}}</v-btn>
+        <v-btn :to = "community.url">  {{community.title}}</v-btn>
+        <v-btn :to = "calander.url">  {{calander.title}}</v-btn>
+        <v-btn :to = "blog.url">  {{blog.title}}</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <main>
       <v-content>
         <v-container fluid>
           <v-slide-y-transition mode="out-in">
-            <v-layout column align-center>
+            <router-view>
               <img src="/static/v.png" alt="Vuetify.js" class="mb-5">
               <blockquote>
-                &#8220;First, solve the problem. Then, write the code.&#8221;
-                <footer>
-                  <small>
-                    <em>&mdash;John Johnson</em>
-                  </small>
-                </footer>
+                &#8220;Computing In Community.&#8221;
               </blockquote>
-            </v-layout>
+            </router-view>
           </v-slide-y-transition>
         </v-container>
       </v-content>
     </main>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      app
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -103,14 +37,16 @@
         clipped: false,
         drawer: true,
         fixed: false,
-        items: [{
-          icon: 'home',
-          title: 'Inspire'
-        }],
+        student: {title: 'students', url : "/students"},
+        faculty: {title: 'faculty', url : "/faculty"},
+        community: {title: 'community', url : "/community"},
+        blog: {title: 'blog', url : "/blog"},
+        calander: {title: 'calander', url : "/calander"},
+        home: {title: 'home', url : "/"},
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Furman @CinC'
       }
     }
   }
