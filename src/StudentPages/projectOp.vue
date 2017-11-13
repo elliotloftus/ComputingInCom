@@ -1,3 +1,3 @@
 <template>
-  <h1> Community</h1>
+  <h1>Project Op</h1>
 </template>

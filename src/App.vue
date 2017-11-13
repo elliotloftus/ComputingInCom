@@ -8,9 +8,19 @@
       <v-toolbar-title class ="homeTitle">Furman @CinC</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat color = "black" :to = "home.url" > {{home.title}} </v-btn>
-        <v-btn flat color = "black" :to = "student.url" > {{student.title}}</v-btn>
-        <v-btn flat color = "black" :to = "faculty.url">  {{faculty.title}}</v-btn>
+      <v-btn flat color = "black" :to = "home.url" > {{home.title}} </v-btn>
+      <v-menu 
+        open-on-hover 
+        offset-y  
+        >
+        <v-btn flat color = "black" dark slot = "activator" :to = "student.url" > {{student.title}}</v-btn>
+          <v-list>
+            <v-list-tile v-for="item in studentPages" :key="item.title" :to="item.url">
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+      </v-menu>
+        <v-btn flat color = "black" dark slot = "activator" :to = "faculty.url">  {{faculty.title}}</v-btn>
         <v-btn flat color = "black" :to = "community.url">  {{community.title}}</v-btn>
         <v-btn flat color = "black" :to = "calander.url">  {{calander.title}}</v-btn>
         <v-btn flat color = "black" :to = "blog.url">  {{blog.title}}</v-btn>
@@ -47,12 +57,20 @@
         faculty: {title: 'faculty', url : "/faculty"},
         community: {title: 'community', url : "/community"},
         blog: {title: 'blog', url : "/blog"},
-        calander: {title: 'calander', url : "/calander"},
+        calander: {title: 'calendar', url : "/calander"},
         home: {title: 'home', url : "/"},
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Furman @CinC'
+        title: 'Furman @CinC',
+        studentPages: [
+          {title: 'Project Opportunities', url : "/projectOp"},
+          {title: 'Job Opportunities', url : "/jobOp"},
+          {title: 'Student Experiences', url : "/studentExp"},
+          {title: 'Courses', url : "/studentCourses"},
+          {title: 'Travel Opportunities', url : "/travelOp"},
+          {title: 'Student Awards', url : "/studentAwards"},
+      ]
       }
     }
   }
@@ -61,5 +79,6 @@
 
 <style>
   .homeTitle {
-    color: purple 
+    color: #5A2B81 
   }
+</style>
