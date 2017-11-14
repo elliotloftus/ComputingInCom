@@ -4,14 +4,20 @@ import Home from '@/components/Home'
 import Students from '@/components/Students'
 import Faculty from '@/components/Faculty'
 import Community from '@/components/Community'
+import Courses from '@/components/Courses'
 import Calander from '@/components/Calander'
 import Blog from '@/components/Blog'
 import projectOp from '@/StudentPages/projectOp'
 import jobOp from '@/StudentPages/jobOp'
 import studentAwards from '@/StudentPages/studentAwards'
-import studentCourses from '@/StudentPages/studentCourses'
 import studentExp from '@/StudentPages/studentExp'
 import travelOp from '@/StudentPages/travelOp'
+import facultyExperiences from '@/FacultyPages/facultyExperiences'
+import facultyScholars from '@/FacultyPages/facultyScholars'
+import fellowProgram from '@/FacultyPages/fellowProgram'
+import fundedIntern from '@/CommunityPages/fundedIntern'
+import partnerships from '@/CommunityPages/partnerships'
+import postJob from '@/CommunityPages/postJob'
 Vue.use(Router)
 
 export default new Router({
@@ -62,9 +68,9 @@ export default new Router({
       component: studentAwards
     },
     {
-      path: '/studentCourses',
-      name: 'studentCourses',
-      component: studentCourses
+      path: '/courses',
+      name: 'Courses',
+      component: Courses
     },
     {
       path: '/studentExp',
@@ -75,6 +81,36 @@ export default new Router({
       path: '/travelOp',
       name: 'travelOp',
       component: travelOp
+    },
+    {
+      path: '/facultyExperiences',
+      name: 'facultyExperiences',
+      component: facultyExperiences
+    },
+    {
+      path: '/facultyScholars',
+      name: 'facultyScholars',
+      component: facultyScholars
+    },
+    {
+      path: '/fellowProgram',
+      name: 'fellowProgram',
+      component: fellowProgram
+    },
+    {
+      path: '/partnerships',
+      name: 'partnerships',
+      component: partnerships
+    },
+    {
+      path: '/fundedIntern',
+      name: 'fundedIntern',
+      component: fundedIntern
+    },
+    {
+      path: '/postJob',
+      name: 'postJob',
+      component: postJob
     },
   ]
 })

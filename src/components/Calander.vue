@@ -9,10 +9,9 @@
         >
          <v-container row justify-right>
            <v-layout row justify-right>
-            <v-flex xs4> 
-            <v-card class = "box" color="purple darken-3">
+            <v-card class="purpBox">
               <v-card-title primary class>
-               <h3 class="CinCTitle"> CALENDAR</h3>
+               <h3 class="CinCTitle">CALENDAR</h3>
                </v-card-title>
               </v-card>
              </v-flex>
@@ -66,9 +65,12 @@
 </script>
 
 <style>
+  .purpBox {
+    background-color: #5A2B81!important;
+    color: white!important;
+  }
   .CinCTitle {
-    color: white;
-    padding-top: 15px;
-    margin-left: 62px;
+    margin: auto;
+    height: 50%;
   }
 </style>
