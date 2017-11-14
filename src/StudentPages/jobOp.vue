@@ -3,18 +3,18 @@
     <v-flex>
       <v-card>
         <v-card-media
-            height = 400px
+            height = 700 px
             class="white--text"
             :src = "require('../assets/studentHome.jpg')"
         >
-         <v-container row justify-left>
-           <v-layout row justify-left>
-            <v-flex xs2> 
-            <v-card class="purpBox">
-              <v-card-title primary class>
-                <h3 class="CinCTitle"> BLOG</h3>
-              </v-card-title>
-            </v-card>
+          <v-container row justify-right>
+           <v-layout row justify-right>
+            <v-flex xs5  offset-xs7> 
+              <v-card class = "purpBox">
+                <v-card-title primary class>
+                  <h3 class="secTierTitle">Job Opportunities</h3>
+               </v-card-title>
+              </v-card>
             </v-flex>
            </v-layout>
           </v-container>
@@ -24,16 +24,18 @@
   </v-layout>
 </template>
 
- <script>
- </script>
-
 <style>
+  .secTierTitle {
+    margin: auto;
+    height: 50%;
+  }
   .purpBox {
     background-color: #5A2B81!important;
     color: white!important;
   }
-  .CinCTitle {
-    margin: auto;
-    height: 50%;
-  }
 </style>
+
+
+
+
+      
