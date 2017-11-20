@@ -27,15 +27,11 @@
             </v-layout>
         </v-card-title>
         <v-layout row wrap>
-            <v-flex xs4 v-for="course in courses" :key="courses.title">
-              <b><div id ="title"> {{course.title}} </div></b>
-            <v-btn id ="favorite" flat icon color="gray">
-              <v-icon>favorite</v-icon>
-            </v-btn>
-
-              <b><div id = "prof">{{course.prof}} </div></b>
+           <v-flex xs4 v-for="course in courses" v-bind:key="courses.title">
+              <b><div id ="title"> {{course.course_id}} </div></b>
+              <b><div id = "prof">{{course.prof_name}} </div></b>
               <b><div id = "department">{{course.department}} </div></b>
-              <div id = "desc">{{course.desc}} </div>
+              <div id = "desc">{{course.description}} </div>
             </v-flex>
         </v-layout>
       </v-card>
@@ -47,10 +43,10 @@
         </v-card-title>
           <v-layout row wrap>
             <v-flex xs4 v-for="course in courses" v-bind:key="courses.title">
-              <b><div id ="title"> {{course.title}} </div></b>
-              <b><div id = "prof">{{course.prof}} </div></b>
+              <b><div id ="title"> {{course.course_id}} </div></b>
+              <b><div id = "prof">{{course.prof_name}} </div></b>
               <b><div id = "department">{{course.department}} </div></b>
-              <div id = "desc">{{course.desc}} </div>
+              <div id = "desc">{{course.description}} </div>
             </v-flex>
         </v-layout>
         </div>
@@ -98,30 +94,27 @@
 </style>
 
  <script>
+ import axios from 'axios'
   export default {
     data () {
       return {
-        courses: [
-          {
-            title: 'CSC-340: Computing with art',
-            prof: 'Dr. Treu | Dr. Armstrong',
-            department: 'Computer Science | Communication Studies',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            title: 'CSC-340: Computing with Art',
-            prof: 'Dr. Treu | Dr. Armstrong',
-            department: 'Computer Science | Communication Studies',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            title: 'CSC-340: Computing with Art',
-            prof: 'Dr. Treu | Dr. Armstrong',
-            department: 'Computer Science | Communication Studies',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-        ]
+        courses: [],
       }
+      },
+      methods: {
+        fetchEntries() {
+          let self = this
+          axios.get('http://127.0.0.1:8000/courses/').then(
+            response => {
+              console.log(response)
+              let temp = response.data
+              self.courses = temp
+          }
+        )
+      },
+    },
+    created: function(){
+      this.fetchEntries()
     }
   }
  </script>

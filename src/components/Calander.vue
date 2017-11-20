@@ -21,18 +21,17 @@
         </v-card>
           <v-flex xs12>
             <v-card>
-              <vue-event-calendar :events="calEvents">
-            
-            <!--<template slot-scope="props">
+            <vue-event-calendar :events="calEvents">
+            <template slot-scope="props">
               <div v-for= "events in props.showEvents" class="event-item" :key="events.title">
                 <b>Event title: {{events.title}}</b><br>
-                  Description: {{events.desc}} <br>
+                  Description: {{events.content}} <br>
                   Date: {{events.date}} <br>
                   Location: {{events.location}} <br>
-                  Start Time: {{formatTime(events.startTime)}} <br>
-                  End Time: {{formatTime(events.endTime)}}
+                  Start Time: {{formatTime(events.start_time)}} <br>
+                  End Time: {{formatTime(events.end_time)}}
                </div>
-            </template>-->
+            </template>
             </vue-event-calendar>
           </v-card>
         </v-flex>
@@ -41,10 +40,12 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
   data () {
     return {
-      calEvents: [{
+      calEvents: [],
+      /*calEvents: [{
         date: '2017/11/10', 
         title: 'CS Presentation',
         desc: 'We present our work'
@@ -58,10 +59,56 @@
         title: 'Thanksgiving',
         desc: 'Celebrate with family and watch some football',
       }
-    ]
+    ] */
+    }
+  },
+  methods: {
+      fetchEntries() {
+        let self = this
+        axios.get('http://127.0.0.1:8000/eventfeeds/').then(
+          response => {
+            console.log(response)
+            let temp = response.data
+            temp.forEach(obj => {obj.date = self.getEventMonth(obj.date)})  
+            self.calEvents = temp
+          }
+        )
+      },
+      getEventMonth(date){
+        var firstLetYear = date.charAt(0)
+        var secondLetYear = date.charAt(1)
+        var thirdLetYear = date.charAt(2)
+        var fourthLetYear = date.charAt(3)
+        var firstLetMonth = date.charAt(5)
+        var secondLetMonth = date.charAt(6)
+        var firstLetDay = date.charAt(8)
+        var secondLetDay = date.charAt(9)
+        var properDate = firstLetYear + secondLetYear + thirdLetYear + fourthLetYear + "/" +
+                       firstLetMonth +secondLetMonth +  "/" + firstLetDay + secondLetDay 
+        return properDate
+      },
+      formatTime(time) {
+        var firstHour = time.charAt(0)
+        var secondHour = time.charAt(1)
+        var hours = firstHour + secondHour
+        var firstMinute = time.charAt(3)
+        var secondMinute = time.charAt(4)
+        var pm = "AM";
+        if (hours == 12) {
+            pm = "PM"
+          }
+        if (hours > 12) {
+            hours = hours - 12
+            pm = "PM"
+          }
+        var finalTime = hours + ":" + firstMinute + secondMinute + " "+pm
+        return finalTime
+      },
+    },
+    created: function(){
+      this.fetchEntries()
     }
   }
-}
 </script>
 
 <style>
