@@ -23,11 +23,11 @@
       <v-card>
       <br>
        <v-layout row wrap>
-            <v-flex xs6 v-for="blog in blogs" v-bind:key="blog.title">
+            <v-flex xs12 sm6 v-for="blog in blogs" v-bind:key="blog.title">
               <b><div id ="title"> {{blog.title}} </div></b>
               <b><div id = "author">{{blog.author}} </div></b>
-              <b><div id = "date">{{blog.date}} </div></b>
-              <div id = "desc">{{blog.desc}} </div>
+              <b><div id = "date">{{blog.time}} </div></b>
+              <div id = "desc">{{blog.body}} </div>
               <v-card-actions>
                 <v-btn icon class="red--text">
                   <v-icon medium>fa-reddit</v-icon>
@@ -36,10 +36,10 @@
                   <v-icon medium>fa-twitter</v-icon>
                 </v-btn>
                 <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fa-facebook</v-icon>
+                  <v-icon medium>fa fa-facebook-official</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
-                  <v-btn flat class="blue--text">Read More</v-btn>
+                  <v-btn flat class="blue--text" :to ="'/singleBlog/' + blog.id">Read More</v-btn>
                 </v-card-actions>
               </v-flex>
         </v-layout>
@@ -53,41 +53,25 @@
   export default {
     data () {
       return {
-        blogs: [
-          {
-            title: 'First blog post',
-            author: 'Elliot Loftus',
-            date: 'November 16, 2017',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            title: 'First blog post',
-            author: 'Elliot Loftus',
-            date: 'November 16, 2017',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-          {
-            title: 'First blog post',
-            author: 'Elliot Loftus',
-            date: 'November 16, 2017',
-            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          },
-        ]
+        blogs: [],
+        singleBlog: "/singleBlogPage/:blogurl"
       }
     },
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://127.0.0.1:8000/eventfeeds/').then(
+        axios.get('http://127.0.0.1:8000/blogs/').then(
           response => {
             console.log(response)
             let temp = response.data
-            temp.forEach(obj => {obj.date = self.getEventMonth(obj.date)})  
-            self.calEvents = temp
+            self.blogs = temp
           }
         )
-    }
+      },
     },
+    created: function(){
+      this.fetchEntries()
+    }
   }
  </script>
 
@@ -120,5 +104,7 @@
     margin-bottom: 25px;
     margin-right: 30px;
     text-align: justify;
+    max-height: 190px;
+    overflow: hidden;
   }
 </style>

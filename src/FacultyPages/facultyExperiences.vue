@@ -9,7 +9,7 @@
         >
           <v-container row justify-right>
            <v-layout row justify-right>
-            <v-flex xs5  offset-xs7> 
+            <v-flex offset-xs7> 
               <v-card class = "purpBox">
                 <v-card-title primary class>
                   <h3 class="secTierTitle">Faculty Experiences</h3>

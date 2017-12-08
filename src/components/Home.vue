@@ -19,8 +19,8 @@
       </v-card-media>
       </v-card>
       <v-layout row-wrap>
-      <v-flex xs7>
-        <v-card>
+      <v-flex xs0 sm7>
+        <v-card id ="homeSidePic">
           <v-card-media
             height = 650 px
             class="white--text"
@@ -29,7 +29,8 @@
           </v-card-media>
         </v-card>
       </v-flex>
-      <v-flex xs5>
+      <v-flex xs12 sm5>
+        <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
               <h3 class="homeTitle">CinC Students</h3>
@@ -38,6 +39,7 @@
         <v-spacer></v-spacer> 
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </div>
         </div>
       </v-flex>
     </v-layout>
@@ -160,12 +162,16 @@ export default {
   .homeText {
     margin-left: 50px;
     margin-right: 50px;
-    font-size: 16px
+    font-size: 16px;
+    height: 50%;
   }
   .test {
     background: rgba(90, 43, 129, .95)!important;
   }
   #mainTitle {
     color:rgba(255, 255, 255, 1);
+  }
+  #homeHalfText {
+    margin-top: 25%;
   }
 </style>
