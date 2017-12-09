@@ -5,7 +5,7 @@
         <v-card-media
             height = 700px
             class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
+            :src = "require('../assets/faculty2.jpg')"
         >
          <v-container row justify-left>
            <v-layout row justify-left>
@@ -114,6 +114,8 @@ export default {
   .CinCTitle {
     margin: auto;
     height: 50%;
+    color:rgba(255, 255, 255, 1);
+    font-family: 'Hind Vadodara', sans-serif;
   }
   .butLayout {
     margin-left: 175px;
@@ -121,5 +123,17 @@ export default {
   }
   .heihgtTest {
     height: 100vh;
+  }
+  .homeText{
+    margin-left: 35px;
+    margin-right: 50px;
+    font-size: 16px;
+    height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-align: justify;
+  }
+  .homeTitle {
+    color: rgba(90, 43, 129, 1);
+    font-family: 'Quattrocento Sans', sans-serif;
   }
 </style>

@@ -173,4 +173,16 @@ export default {
   .heihgtTest {
     height: 100vh;
   }
+  .homeText{
+    margin-left: 35px;
+    margin-right: 50px;
+    font-size: 16px;
+    height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-align: justify;
+  }
+  .homeTitle {
+    color: rgba(90, 43, 129, 1);
+    font-family: 'Quattrocento Sans', sans-serif;
+  }
 </style>

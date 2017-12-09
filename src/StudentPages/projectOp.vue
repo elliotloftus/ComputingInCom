@@ -5,7 +5,7 @@
         <v-card-media
             height = 700 px
             class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
+            :src = "require('../assets/furmanEng.jpg')"
         >
           <v-container row justify-right>
            <v-layout row justify-right>
@@ -24,10 +24,9 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="project in projects" v-bind:key="project.title">
               <b><div id ="title"> {{project.title}} </div></b>
-              <b><div id = "company">{{project.host_orginization}} </div></b>
-              <b><div id = "company_contact">{{project.start_date}} - {{project.end_date}} </div></b>
-              <div id = "desc">{{project.majors}} </div>
-              <div id = "desc">{{project.requirements}} </div>
+              <b><div id = "company">{{project.host_organization}} </div></b>
+              <div id = "majors">{{project.majors}} </div>
+              <b><div id ="company">{{project.location}} </div></b>
               <div id = "desc">{{project.description}} </div>
               <v-card-actions>
                 <v-btn icon class="red--text">
@@ -57,6 +56,29 @@
   .purpBox {
     background-color: #5A2B81!important;
     color: white!important;
+  }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #company {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #majors { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #desc {
+    margin-left: 30px;
+    margin-bottom: 25px;
+    margin-right: 30px;
+    text-align: justify;
+    max-height: 190px;
+    overflow: hidden;
   }
 </style>
 

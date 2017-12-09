@@ -1,5 +1,7 @@
+
 <template>
   <v-app light>
+    <head> <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:300|Quattrocento+Sans" rel="stylesheet"> </head>
       <v-toolbar
         fixed
         color="white"
@@ -45,7 +47,18 @@
         <v-btn flat color = "black" :to ="courses.url"> {{courses.title}}</v-btn>
         <v-btn flat color = "black" :to = "calander.url">  {{calander.title}}</v-btn>
         <v-btn flat color = "black" :to = "blog.url">  {{blog.title}}</v-btn>
-        <v-btn flat icon color = "black"><v-icon>account_circle</v-icon></v-btn>
+        <v-menu
+          offset-y
+          open-on-hover
+        >
+        <v-btn flat icon color = "black" dark slot="activator"><v-icon>account_circle</v-icon></v-btn>
+          <v-list>
+            <v-list-tile v-for="item in logInPages" :key="item.title" :to="item.url">
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-card>
+      </v-menu>
       </v-toolbar-items>
       </v-toolbar>
     <main>
@@ -72,9 +85,11 @@
   export default {
     data () {
       return {
+        menu: false,
         clipped: false,
         drawer: true,
         fixed: false,
+        myCinc: {title: 'cinc', url: "/myCinc"},
         student: {title: 'students', url : "/students"},
         faculty: {title: 'faculty', url : "/faculty"},
         courses: {title: 'Courses', url : "/courses"},
@@ -102,7 +117,11 @@
           {title: 'Funded Intern Application', url : "/fundedIntern"},
           {title: 'Post a Job', url : "/postJob"},
           {title: 'Partnerships', url : "/partnerships"},
-        ]
+        ],
+        logInPages: [
+          {title: 'Sign In', url : "/myCinc"},
+          {title: 'Create Account', url : "/facultyScholars"},
+        ],
       }
     }
   }

@@ -32,7 +32,7 @@
       <v-flex xs5>
         <v-card-title primary-title>
           <v-layout row justify-center>
-              <h3 class="homeTitle">Apply for a Funded Intern</h3>
+              <h3 class="homeTitle">Funded Intern</h3>
             </v-layout>
         </v-card-title>
         <v-spacer></v-spacer> 
@@ -114,6 +114,8 @@ export default {
   .CinCTitle {
     margin: auto;
     height: 50%;
+    color:rgba(255, 255, 255, 1);
+    font-family: 'Hind Vadodara', sans-serif;
   }
   .butLayout {
     margin-left: 175px;
@@ -121,5 +123,17 @@ export default {
   }
   .heihgtTest {
     height: 100vh;
+  }
+  .homeText{
+    margin-left: 35px;
+    margin-right: 50px;
+    font-size: 16px;
+    height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-align: justify;
+  }
+  .homeTitle {
+    color: rgba(90, 43, 129, 1);
+    font-family: 'Quattrocento Sans', sans-serif;
   }
 </style>

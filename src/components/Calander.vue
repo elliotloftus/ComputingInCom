@@ -119,5 +119,7 @@
   .CinCTitle {
     margin: auto;
     height: 50%;
+    color:rgba(255, 255, 255, 1);
+    font-family: 'Hind Vadodara', sans-serif;
   }
 </style>

@@ -1,23 +1,31 @@
 <template>
-  <v-layout>
-    <v-flex>
-      <v-card>
-        <v-card-media
-            height = 700px
-            class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
-        >
-         <v-container row justify-left>
-           <v-layout row justify-left>
-            <v-card class="purpBox">
-              <v-card-title primary class>
-               <h3 class="CinCTitle"> CINC COMMUNITY</h3>
-               </v-card-title>
-              </v-card>
-             </v-layout>
-           </v-container>
-          </v-card-media>
-        </v-card>
-     </v-flex>
-  </v-layout>
+  <v-card class="d-inline-block pa-20">
+    <v-navigation-drawer fixed floating light>
+      <v-list dense class="pt-6">
+        <v-list-tile v-for="item in items" :key="item.title" @click="">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+  </v-card>
 </template>
+
+
+
+<script>
+  export default {
+    data () {
+      return {
+        items: [
+          { title: 'Home', icon: 'dashboard' },
+          { title: 'About', icon: 'question_answer' }
+        ]
+      }
+    }
+  }
+</script>

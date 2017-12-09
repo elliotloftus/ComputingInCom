@@ -45,6 +45,7 @@
     </v-layout>
     <v-layout row-wrap>
       <v-flex xs5>
+        <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
               <h3 class="homeTitle">CinC Faculty</h3>
@@ -54,13 +55,14 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        </div>
       </v-flex>
       <v-flex xs7>
         <v-card>
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('../assets/faculty.jpg')"
+            :src = "require('../assets/faculty2.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -78,6 +80,7 @@
         </v-card>
       </v-flex>
       <v-flex xs5>
+        <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
               <h3 class="homeTitle">CinC Community</h3>
@@ -87,10 +90,12 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        </div>
       </v-flex>
       </v-layout>
       <v-layout row-wrap>
        <v-flex xs5>
+        <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
               <h3 class="homeTitle">CinC Courses</h3>
@@ -99,6 +104,7 @@
         <v-spacer></v-spacer> 
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </div>
         </div>
       </v-flex>
         <v-flex xs7>
@@ -158,18 +164,22 @@ export default {
 <style>
   .homeTitle {
     color: rgba(90, 43, 129, 1);
+    font-family: 'Quattrocento Sans', sans-serif;
   }
   .homeText {
-    margin-left: 50px;
+    margin-left: 35px;
     margin-right: 50px;
     font-size: 16px;
     height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-align: justify;
   }
   .test {
     background: rgba(90, 43, 129, .95)!important;
   }
   #mainTitle {
     color:rgba(255, 255, 255, 1);
+    font-family: 'Hind Vadodara', sans-serif;
   }
   #homeHalfText {
     margin-top: 25%;

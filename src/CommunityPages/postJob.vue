@@ -123,11 +123,6 @@
         this.dialog = false
       },
     },
-    created: function(){
-      this.fetchEntries()
-    }
   }
  </script>
- 
-}
-</script>
+

@@ -26,9 +26,9 @@
               <b><div id ="title"> {{job.title}} </div></b>
               <b><div id = "company">{{job.employer}} </div></b>
               <b><div id = "company_contact">{{job.employer_description}} </div></b>
+              <b><div id = "company">{{job.requirements}} </div></b>
+              <b><div id = "company_contact">{{job.majors}} </div></b>
               <div id = "desc">{{job.job_description}} </div>
-              <div id = "desc">{{job.requirements}} </div>
-              <div id = "desc">{{job.majors}} </div>
               <v-card-actions>
                 <v-btn icon class="red--text">
                   <v-icon medium>fa-reddit</v-icon>
