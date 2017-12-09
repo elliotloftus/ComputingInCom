@@ -53,7 +53,7 @@
         >
         <v-btn flat icon color = "black" dark slot="activator"><v-icon>account_circle</v-icon></v-btn>
           <v-list>
-            <v-list-tile v-for="item in logInPages" :key="item.title" :to="axiosUrl">
+            <v-list-tile v-for="item in logInPages" :key="item.title" :to="item.url">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile>
           </v-list>
