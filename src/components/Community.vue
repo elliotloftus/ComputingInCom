@@ -39,7 +39,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
-        <v-btn flat class = "butLayout" color = "black" :to = "fundedIntern.url"> {{fundedIntern.title}}</v-btn>
+        <v-layout row justify-center>
+        <v-btn id="jobBut" dark slot="activator" :to = "fundedIntern.url"> {{fundedIntern.title}}</v-btn>
+        </v-layout>
       </v-flex>
       </v-layout>
       <v-layout row-wrap>
@@ -53,7 +55,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
-        <v-btn flat class = "butLayout" color = "black" :to = "partnerships.url"> {{partnerships.title}}</v-btn>
+        <v-layout row justify-center>
+        <v-btn id="jobBut" dark slot="activator" :to = "partnerships.url"> {{partnerships.title}}</v-btn>
+        </v-layout>
       </v-flex>
       <v-flex xs7>
         <v-card>
@@ -87,7 +91,55 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
-        <v-btn flat class = "butLayout" color = "black" :to = "postJob.url"> {{postJob.title}}</v-btn>
+        <v-layout row justify-center>
+          <v-dialog v-model="dialog" persistent width="50%">
+            <v-btn id="jobBut" dark slot="activator">Post a Job</v-btn>
+              <v-card>
+                <v-card-title>
+                  <span class="headline">Post a Job</span>
+                  </v-card-title>
+                    <v-card-text>
+                      <v-container grid-list-md>
+                        <v-layout wrap>
+                          <v-flex xs12 sm6 md6>
+                            <v-text-field label="First name" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12 sm6 md6>
+                            <v-text-field label="Last name" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Email" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Title" required v-model="jobTitle"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12 sm12>
+                            <v-text-field multi-line label="Job Description" required v-model="jobDesc"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Employer" required v-model="employer"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Employer Description" required v-model="employerDesc"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Majors Applicable" required v-model="majors"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Requirements" required v-model="requirements"></v-text-field>
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                      <small>*indicates required field</small>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn class="blue--text darken-1" flat v-on:click="submitJob">Submit</v-btn>
+                      <v-btn class="blue--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-layout>
       </v-flex>
     </v-layout>
     </v-flex>
@@ -95,16 +147,47 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      fundedIntern: {title: 'Learn More', url : "/fundedIntern"},
-      partnerships: {title: 'Learn More', url : "/partnerships"},
-      postJob: {title: 'Learn More', url : "/postJob"},
-    }
+ import axios from 'axios'
+  export default {
+    data () {
+      return {
+        jobs: [],
+        dialog: false,
+        jobTitle: '',
+        jobDesc: '',
+        employer: '',
+        employerDesc: '',
+        majors: '',
+        requirements: '',
+        fundedIntern: {title: 'Learn More', url : "/fundedIntern"},
+        partnerships: {title: 'Learn More', url : "/partnerships"},
+        postJob: {title: 'Learn More', url : "/postJob"},
+      }
+      },
+      methods: {
+        closeDialog(e) {
+        console.log(e.editdialog)
+        e.editdialog=false
+      },
+      submitJob() {
+        let self = this
+        axios.post('http://127.0.0.1:8000/jobs/create/', {
+          title: this.jobTitle,
+          description: this.jobDesc,
+          employer: this.employer,
+          employerDesc: this.employerDesc,
+          majors: this.majors,
+          requirements: this.requirements,
+        }).then(
+          response => {
+            console.log(response)
+         }
+          )
+        this.dialog = false
+      },
+    },
   }
-}
-</script>
+ </script>
 
 <style>
   .purpBox {
@@ -135,5 +218,8 @@ export default {
   .homeTitle {
     color: rgba(90, 43, 129, 1);
     font-family: 'Quattrocento Sans', sans-serif;
+  }
+  #jobBut {
+    background-color: #5A2B81
   }
 </style>

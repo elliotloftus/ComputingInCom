@@ -53,7 +53,7 @@
         >
         <v-btn flat icon color = "black" dark slot="activator"><v-icon>account_circle</v-icon></v-btn>
           <v-list>
-            <v-list-tile v-for="item in logInPages" :key="item.title" :to="baseUrl">
+            <v-list-tile v-for="item in logInPages" :key="item.title" :to="axiosUrl">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile>
           </v-list>
@@ -116,17 +116,16 @@
         ],
         communityPages: [
           {title: 'Funded Intern Application', url : "/fundedIntern"},
-          {title: 'Post a Job', url : "/postJob"},
           {title: 'Partnerships', url : "/partnerships"},
         ],
         logInPages: [
           {title: 'Sign In', href : "127.0.0.1:8000/login/"},
           {title: 'Create Account', url : "/facultyScholars"},
         ],
-        baseUrl: '127.0.0.1:8000/login/'
       }
     }
   }
+
 </script>
 
 <style>

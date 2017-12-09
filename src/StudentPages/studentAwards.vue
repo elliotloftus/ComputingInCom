@@ -24,20 +24,10 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="award in awards" v-bind:key="award.title">
               <b><div id ="title"> {{award.title}} </div></b>
-              <b><div id = "company">{{award.stu_name}} </div></b>
-              <b><div id = "company_contact">{{award.class}} </div></b>
-              <b><div id = "company_contact">{{award.major}} </div></b>
-              <div id = "desc">{{award.description}} </div>
+              <b><div id = "stu_name">{{award.stu_name}} </div></b>
+              <b><div id = "major">{{award.major}} </div></b>
+              <div id = "stuDesc">{{award.description}} </div>
               <v-card-actions>
-                <v-btn icon class="red--text">
-                  <v-icon medium>fa-reddit</v-icon>
-                </v-btn>
-                <v-btn icon class="light-blue--text">
-                  <v-icon medium>fa-twitter</v-icon>
-                </v-btn>
-                <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fa fa-facebook-official</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
                   <v-btn flat class="blue--text" :to ="'/singleAwardOp/' + award.id">Read More</v-btn>
                 </v-card-actions>
@@ -56,6 +46,30 @@
   .purpBox {
     background-color: #5A2B81!important;
     color: white!important;
+  }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #stu_name {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #major { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #stuDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+  }
+  #favorite {
+    margin-right: 30px;
+    margin-left: 20px;
   }
 </style>
 

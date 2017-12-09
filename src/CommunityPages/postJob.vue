@@ -20,7 +20,7 @@
           </v-container>
         </v-card-media>
       </v-card>
-            <v-card>
+      <v-card>
         <v-layout row justify-center>
           <v-dialog v-model="dialog" persistent width="50%">
             <v-btn primary dark slot="activator">Post a Job</v-btn>
