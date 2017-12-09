@@ -53,7 +53,7 @@
         >
         <v-btn flat icon color = "black" dark slot="activator"><v-icon>account_circle</v-icon></v-btn>
           <v-list>
-            <v-list-tile v-for="item in logInPages" :key="item.title" :to="item.url">
+            <v-list-tile v-for="item in logInPages" :key="item.title" :to="baseUrl">
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile>
           </v-list>
@@ -82,6 +82,7 @@
 </template>
 
 <script>
+  var axios = require('axios');
   export default {
     data () {
       return {
@@ -119,13 +120,13 @@
           {title: 'Partnerships', url : "/partnerships"},
         ],
         logInPages: [
-          {title: 'Sign In', url : "/myCinc"},
+          {title: 'Sign In', href : "127.0.0.1:8000/login/"},
           {title: 'Create Account', url : "/facultyScholars"},
         ],
+        baseUrl: '127.0.0.1:8000/login/'
       }
     }
   }
-
 </script>
 
 <style>

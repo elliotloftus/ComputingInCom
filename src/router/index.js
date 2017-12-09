@@ -23,6 +23,7 @@ import singleBlog from '@/components/singleBlog'
 import singleJobOp from '@/StudentPages/singleJobOp'
 import singleProjectOp from '@/StudentPages/singleProjectOp'
 import singleTravelOp from '@/StudentPages/singleTravelOp'
+import singleStudentExp from '@/StudentPages/singleStudentExp'
 Vue.use(Router)
 
 export default new Router({
@@ -135,6 +136,11 @@ export default new Router({
     {
       path: '/singleTravelOp/:travelurl',
       component: singleTravelOp,
+      props: true,
+    },
+    {
+      path: '/singleStudentExp/:studentExpurl',
+      component: singleStudentExp,
       props: true,
     },
     {

@@ -24,20 +24,10 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="project in projects" v-bind:key="project.title">
               <b><div id ="title"> {{project.title}} </div></b>
-              <b><div id = "company">{{project.host_organization}} </div></b>
-              <div id = "majors">{{project.majors}} </div>
-              <b><div id ="company">{{project.location}} </div></b>
+              <b><div id = "company">{{project.prof_name}} </div></b>
+              <div id = "majors">{{project.department}} </div>
               <div id = "desc">{{project.description}} </div>
               <v-card-actions>
-                <v-btn icon class="red--text">
-                  <v-icon medium>fa-reddit</v-icon>
-                </v-btn>
-                <v-btn icon class="light-blue--text">
-                  <v-icon medium>fa-twitter</v-icon>
-                </v-btn>
-                <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fa fa-facebook-official</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
                   <v-btn flat class="blue--text" :to ="'/singleProjectOp/' + project.id">Read More</v-btn>
                 </v-card-actions>

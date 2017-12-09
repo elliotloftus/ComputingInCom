@@ -24,11 +24,8 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="job in jobs" v-bind:key="job.title">
               <b><div id ="title"> {{job.title}} </div></b>
-              <b><div id = "company">{{job.employer}} </div></b>
-              <b><div id = "company_contact">{{job.employer_description}} </div></b>
-              <b><div id = "company">{{job.requirements}} </div></b>
-              <b><div id = "company_contact">{{job.majors}} </div></b>
-              <div id = "desc">{{job.job_description}} </div>
+              <b><div id = "employer">{{job.employer}} </div></b>
+              <div id = "jobDesc">{{job.job_description}} </div>
               <v-card-actions>
                 <v-btn icon class="red--text">
                   <v-icon medium>fa-reddit</v-icon>
@@ -64,19 +61,14 @@
     font-size: 24px;
     margin-right: 30px;
   }
-  #company {
-   margin-left: 30px;
-    margin-right: 30px;
-  }
-  #company_contact { 
+  #employer { 
     margin-left: 30px;
     color: #5A2B81;
     text-transform: uppercase;
     margin-right: 20px;
   }
-  #desc {
+  #jobDesc {
     margin-left: 30px;
-    margin-bottom: 25px;
     margin-right: 30px;
     text-align: justify;
   }

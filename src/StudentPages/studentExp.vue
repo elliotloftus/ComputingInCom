@@ -31,7 +31,7 @@
           <v-container row justify-center>
            <v-layout row justify-center>
             <v-flex offset-xs6> 
-              <v-card class="purpBox">
+              <v-card class="purpBox" :to ="'/singleStudentExp/' + exp.id">
                 <v-card-title primary class>
                   <h5 id ="expStudent"> {{exp.stu_name}}</h5>
                 </v-card-title>

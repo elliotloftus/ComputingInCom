@@ -1,14 +1,14 @@
 <template>
-    <v-card>
-        <br>
-        <br>
+  <v-layout row justify-center>
+  <v-flex xs8>
+    <v-card id = "singlev">
         <b><div id ="title"> {{project.title}} </div></b>
-        <b><div id = "company">{{project.host_orginization}} </div></b>
-        <b><div id = "company_contact">{{project.start_date}} - {{project.end_date}} </div></b>
-        <div id = "desc">{{project.majors}} </div>
-        <div id = "desc">{{project.requirements}} </div>
-        <div id = "desc">{{project.description}} </div>
+        <b><div id = "profname">{{project.prof_name}} </div></b>
+        <b><div id = "department">{{project.department}} </div></b>
+        <div id = "projDesc">{{project.description}} </div>
     </v-card>
+  </v-flex>
+  </v-layout>
 </template>
 
 
@@ -38,3 +38,29 @@
     }
   }
 </script>
+
+<style>
+#title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+}
+#profname{
+   margin-left: 30px;
+   margin-right: 30px;
+ }
+ #department {
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+ }
+ #projDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+ }
+ #singlev{
+   margin-top: 100px;
+ }
+</style>
