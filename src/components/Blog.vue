@@ -89,7 +89,7 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://127.0.0.1:8000/blogs/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/blogs/').then(
           response => {
             console.log(response)
             let temp = response.data
@@ -104,7 +104,7 @@
       },
       submitBlog() {
         let self = this
-        axios.post('http://127.0.0.1:8000/blogs/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/create/', {
           title: this.title,
           description: this.body,
           author: this.author,

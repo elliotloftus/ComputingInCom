@@ -155,7 +155,7 @@
       methods: {
         fetchEntries() {
           let self = this
-          axios.get('http://127.0.0.1:8000/courses/').then(
+          axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/courses').then(
             response => {
               console.log(response)
               let temp = response.data
@@ -169,7 +169,7 @@
       },
       submitEvent() {
         let self = this
-        axios.post('http://127.0.0.1:8000/courses/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/courses/create/', {
           course_id: this.title,
           description: this.descr,
           prof_name: this.prof,
