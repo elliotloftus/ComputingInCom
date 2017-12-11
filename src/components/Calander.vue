@@ -35,6 +35,116 @@
             </vue-event-calendar>
           </v-card>
         </v-flex>
+          <v-layout row justify-center>
+          <v-dialog v-model="dialog" persistent width="50%">
+            <v-btn id="calBut" dark slot="activator">Submit an event</v-btn>
+              <v-card>
+                <v-card-title>
+                  <span class="headline">Submit an event</span>
+                  </v-card-title>
+                    <v-card-text>
+                      <v-container grid-list-md>
+                        <v-layout wrap>
+                          <v-flex xs12>
+                            <v-text-field label="Email" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Event Name" required v-model="title"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Location" required v-model="location"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                          <v-dialog
+                              persistent
+                              v-model="modal"
+                              lazy
+                              full-width
+                              width="290px"
+                            >
+                          <v-text-field
+                            slot="activator"
+                            label="Pick a date"
+                            v-model="date"
+                            prepend-icon="event"
+                            readonly
+                            ></v-text-field>
+                      <v-date-picker v-model="date" scrollable actions>
+                      <template slot-scope="{ save, cancel }">
+                        <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+                        <v-btn flat color="primary" @click="save">OK</v-btn>
+                        </v-card-actions>
+                      </template>
+                    </v-date-picker>
+                  </v-dialog>
+                </v-flex>
+               <v-flex xs12>
+                <v-dialog
+                    persistent
+                      v-model="modal2"
+                      lazy
+                      full-width
+                      width="290px"
+                    >
+                    <v-text-field
+                      slot="activator"
+                      label="Pick a start time for your event"
+                       required v-model="start_time"
+                       prepend-icon="access_time"
+                       readonly
+                    ></v-text-field>
+                    <v-time-picker v-model="start_time" format="24hr" actions>
+                    <template slot-scope="{ save, cancel }">
+                      <v-card-actions>
+                        <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+                        <v-btn flat color="primary" @click="save">Save</v-btn>
+                      </v-card-actions>
+                      </template>
+                    </v-time-picker>
+                  </v-dialog>
+                          </v-flex>
+               <v-flex xs12>
+                <v-dialog
+                    persistent
+                      v-model="modal3"
+                      lazy
+                      full-width
+                      width="290px"
+                    >
+                    <v-text-field
+                      slot="activator"
+                      label="Pick an end time for your event"
+                       required v-model="end_time"
+                       prepend-icon="access_time"
+                       readonly
+                    ></v-text-field>
+                    <v-time-picker v-model="end_time" format="24hr" actions>
+                    <template slot-scope="{ save, cancel }">
+                      <v-card-actions>
+                        <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+                        <v-btn flat color="primary" @click="save">Save</v-btn>
+                      </v-card-actions>
+                      </template>
+                    </v-time-picker>
+                  </v-dialog>
+                          </v-flex>
+                          <v-flex xs12 sm12>
+                            <v-text-field multi-line label="Description" required v-model="body"></v-text-field>
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                      <small>*indicates required field</small>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn class="blue--text darken-1" flat v-on:click="submitEvent">Submit</v-btn>
+                      <v-btn class="blue--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-layout>
     </v-content>
   </v-app>
 </template>
@@ -44,7 +154,19 @@
   export default {
   data () {
     return {
+      body: '',
+      dialog: false,
+      description: '',
+      title: '',
+      date: null,
+      start_time: null,
+      end_time: null,
       calEvents: [],
+      menu: false,
+      modal: false,
+      menu2: false,
+      modal2: false,
+      modal3: false,
       /*calEvents: [{
         date: '2017/11/10', 
         title: 'CS Presentation',
@@ -104,6 +226,27 @@
         var finalTime = hours + ":" + firstMinute + secondMinute + " "+pm
         return finalTime
       },
+      closeDialog(e) {
+        console.log(e.editdialog)
+        e.editdialog=false
+      },
+      submitEvent() {
+        let self = this
+        axios.post('http://127.0.0.1:8000/eventfeeds/create/', {
+          title: this.title,
+          description: this.body,
+          date: this.date,
+          location: this.location,
+          start_time: this.start_time,
+          end_time: this.end_time,
+        }).then(
+          response => {
+            console.log(response)
+            self.fetchEntries()
+         }
+          )
+        this.dialog = false
+      },
     },
     created: function(){
       this.fetchEntries()
@@ -121,5 +264,8 @@
     height: 50%;
     color:rgba(255, 255, 255, 1);
     font-family: 'Hind Vadodara', sans-serif;
+  }
+  #calBut {
+    background-color: #5A2B81;
   }
 </style>

@@ -24,21 +24,10 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="travel in travels" v-bind:key="travel.title">
               <b><div id ="title"> {{travel.title}} </div></b>
-              <b><div id = "company">{{travel.host_orginization}} </div></b>
-              <b><div id = "company_contact">{{travel.start_date}} - {{travel.end_date}} </div></b>
-              <div id = "desc">{{travel.majors}} </div>
-              <div id = "desc">{{travel.requirements}} </div>
-              <div id = "desc">{{travel.description}} </div>
+              <b><div id = "date">{{travel.start_date}} - {{travel.end_date}} </div></b>
+              <div id = "majors">{{travel.majors}} </div>
+              <div id = "travDesc">{{travel.description}} </div>
               <v-card-actions>
-                <v-btn icon class="red--text">
-                  <v-icon medium>fa-reddit</v-icon>
-                </v-btn>
-                <v-btn icon class="light-blue--text">
-                  <v-icon medium>fa-twitter</v-icon>
-                </v-btn>
-                <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fa fa-facebook-official</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
                   <v-btn flat class="blue--text" :to ="'/singletravelOp/' + travel.id">Read More</v-btn>
                 </v-card-actions>
@@ -57,6 +46,26 @@
   .purpBox {
     background-color: #5A2B81!important;
     color: white!important;
+  }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #date {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #majors { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #travDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
   }
 </style>
 

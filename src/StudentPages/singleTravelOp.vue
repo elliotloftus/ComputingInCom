@@ -1,16 +1,41 @@
 <template>
-    <v-card>
-        <br>
-        <br>
+  <v-layout row justify-center>
+  <v-flex xs8>
+    <v-card id = "singlev">
         <b><div id ="title"> {{travel.title}} </div></b>
-        <b><div id = "company">{{travel.host_orginization}} </div></b>
-        <b><div id = "company_contact">{{travel.start_date}} - {{travel.end_date}} </div></b>
-        <div id = "desc">{{travel.majors}} </div>
-        <div id = "desc">{{travel.requirements}} </div>
-        <div id = "desc">{{travel.description}} </div>
+        <b><div id = "date">{{travel.start_date}} - {{travel.end_date}} </div></b>
+        <div id = "majors">{{travel.majors}} </div>
+        <div id = "travDesc">{{travel.description}} </div>
     </v-card>
+  </v-flex>
+  </v-layout>
 </template>
 
+<style>
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #date {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #majors { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #travDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+  }
+  #singlev{
+   margin-top: 100px;
+ }
+</style>
 
 <script>
   import axios from 'axios'

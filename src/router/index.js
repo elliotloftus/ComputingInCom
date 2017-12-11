@@ -24,6 +24,7 @@ import singleJobOp from '@/StudentPages/singleJobOp'
 import singleProjectOp from '@/StudentPages/singleProjectOp'
 import singleTravelOp from '@/StudentPages/singleTravelOp'
 import singleStudentExp from '@/StudentPages/singleStudentExp'
+import singleAwards from '@/StudentPages/singleAwards'
 Vue.use(Router)
 
 export default new Router({
@@ -141,6 +142,11 @@ export default new Router({
     {
       path: '/singleStudentExp/:studentExpurl',
       component: singleStudentExp,
+      props: true,
+    },
+    {
+      path: '/singleAwards/:awardurl',
+      component: singleAwards,
       props: true,
     },
     {
