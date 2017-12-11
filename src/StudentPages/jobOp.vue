@@ -24,7 +24,7 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="job in jobs" v-bind:key="job.title">
               <b><div id ="title"> {{job.title}} </div></b>
-              <b><div id = "employer">{{job.employer}} </div></b>
+              <b><span id = "label">Employer: </span><span id = "employer">{{job.employer}}</span></b>
               <div id = "jobDesc">{{job.job_description}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -53,11 +53,15 @@
     margin-right: 30px;
   }
   #employer { 
-    margin-left: 30px;
     color: #5A2B81;
     text-transform: uppercase;
     margin-right: 20px;
   }
+  #label { 
+    margin-left: 30px;
+    color: black;
+  }
+  
   #jobDesc {
     margin-left: 30px;
     margin-right: 30px;

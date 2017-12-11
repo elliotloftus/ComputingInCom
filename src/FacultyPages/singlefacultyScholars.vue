@@ -2,10 +2,10 @@
 <v-layout row justify-center>
   <v-flex xs8>
     <v-card id = "singlev">
-        <b><div id ="title"> {{award.title}} </div></b>
-        <b><div id = "stu_name">{{award.stu_name}} </div></b>
-        <b><div id = "major">{{award.major}} </div></b>
-        <div id = "stuDesc">{{award.description}} </div>   
+        <b><div id ="title"> {{scholars.title}} </div></b>
+        <b><div id = "fac_name">{{scholars.fac_name}} </div></b>
+        <b><div id = "department">{{scholars.department}} </div></b>
+        <div id = "facDesc">{{scholars.description}} </div>   
     </v-card>
   </v-flex>
 </v-layout>
@@ -14,20 +14,20 @@
  <script>
   import axios from 'axios'
   export default {
-    props: ['awardurl'],
+    props: ['facultyScholarsurl'],
     data () {
       return {
-        award: [],
+        scholars: [],
       }
     },
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/stuawards/' + this.awardurl).then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/faclscholars/' + this.facultyScholarsurl).then(
           response => {
             console.log(response)
             let temp = response.data
-            self.award = temp
+            self.scholars = temp
           }
         )
       },
@@ -52,17 +52,17 @@
     font-size: 24px;
     margin-right: 30px;
   }
-  #stu_name {
+  #fac_name {
    margin-left: 30px;
-    margin-right: 30px;
+   margin-right: 30px;
   }
-  #major { 
+  #department { 
     margin-left: 30px;
     color: #5A2B81;
     text-transform: uppercase;
     margin-right: 20px;
   }
-  #stuDesc {
+  #facDesc {
     margin-left: 30px;
     margin-right: 30px;
     text-align: justify;
@@ -71,4 +71,3 @@
    margin-top: 100px;
  }
 </style>
-

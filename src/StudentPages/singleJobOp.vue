@@ -23,7 +23,7 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/' + this.joburl).then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/jobs/' + this.joburl).then(
           response => {
             console.log(response)
             let temp = response.data
@@ -47,6 +47,11 @@
     margin-left: 30px;
     color: #5A2B81;
     text-transform: uppercase;
+    margin-right: 20px;
+ }
+  #label {
+    margin-left: 30px;
+    color: black;
     margin-right: 20px;
  }
  #jobDesc {

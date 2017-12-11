@@ -21,7 +21,7 @@
         </v-card-media>
       </v-card>
       <v-card>
-                <v-layout row justify-center>
+      <v-layout row justify-center>
           <v-dialog v-model="dialog" persistent width="50%">
             <v-btn id="facBut" dark slot="activator">Suggest a Faculty Scholar</v-btn>
               <v-card>
@@ -71,7 +71,7 @@
               <div id = "fac_desc">{{fac_scholar.description}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                  <v-btn flat class="blue--text" :to ="'/singlefac_scholars/' + fac_scholar.id">Read More</v-btn>
+                  <v-btn flat id="readMore" :to ="'/singlefacultyScholars/' + fac_scholar.id">Read More</v-btn>
                 </v-card-actions>
               </v-flex>
         </v-layout>
@@ -112,6 +112,13 @@
   #singlev{
    margin-top: 100px;
  }
+ #readMore{
+   color:#5A2B81;
+ }
+  #facBut {
+    background-color: #5A2B81;
+    margin-top: 20px;
+  }
 </style>
   
 <script>
@@ -125,7 +132,7 @@
         department: '',
         fac_name: '',
         dialog: false,
-        singlefacultyscholar: "/singlefacultyscholar/:facultyscholarurl"
+        singlefacultyScholars: "/singlefacultyScholars/:facultyScholarsurl"
       }
     },
     methods: {

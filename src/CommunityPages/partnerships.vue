@@ -68,7 +68,7 @@
               <div id = "description">{{part.description}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                  <v-btn flat class="blue--text" :to ="'/singlepartOp/' + part.id">Read More</v-btn>
+                  <v-btn flat class="blue--text" :to ="'/singlepart/' + part.id">Read More</v-btn>
                 </v-card-actions>
               </v-flex>
         </v-layout>
@@ -121,7 +121,7 @@
         descr: '',
         org: '',
         dialog: false,
-        singlepartOp: "/singlepartOp/:parturl"
+        singlepartOp: "/singlepart/:parturl"
       }
     },
     methods: {
