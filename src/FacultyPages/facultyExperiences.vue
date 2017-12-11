@@ -50,16 +50,6 @@
   </v-layout>
 </template>
 
-<style>
-  .secTierTitle {
-    margin: auto;
-    height: 50%;
-  }
-  .purpBox {
-    background-color: #5A2B81!important;
-    color: white!important;
-  }
-</style>
 
 <script>
   import axios from 'axios'
@@ -87,3 +77,17 @@
     }
   }
 </script>
+
+<style>
+  #greyscale:hover{
+    background-color: black
+  }
+  .secTierTitle {
+    margin: auto;
+    height: 50%;
+  }
+  .purpBox {
+    background-color: #5A2B81!important;
+    color: white!important;
+  }
+</style>
