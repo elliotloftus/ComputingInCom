@@ -71,8 +71,8 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="project in projects" v-bind:key="project.title">
               <b><div id ="title"> {{project.title}} </div></b>
-              <b><div id = "company">{{project.prof_name}} </div></b>
-              <div id = "majors">{{project.department}} </div>
+              <b><div id = "company">Professor: {{project.prof_name}} </div></b>
+              <div id = "majors">Majors: {{project.majors}} </div>
               <div id = "desc">{{project.description}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -159,7 +159,7 @@
           description: this.descr,
           prof_name: this.prof,
           department: this.dep,
-          major: this.major,
+          majors: this.major,
         }).then(
           response => {
             console.log(response)
