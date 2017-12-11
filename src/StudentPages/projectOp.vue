@@ -21,7 +21,54 @@
         </v-card-media>
       </v-card>
      <v-card>
-        <v-layout row wrap>
+        <v-layout row justify-center>
+          <v-dialog v-model="dialog" persistent width="50%">
+            <v-btn id="projectBut" dark slot="activator">Suggest a Project Opportunity</v-btn>
+              <v-card>
+                <v-card-title>
+                  <span class="headline">Suggest a Project Opportunity</span>
+                  </v-card-title>
+                    <v-card-text>
+                      <v-container grid-list-md>
+                        <v-layout wrap>
+                          <v-flex xs12 sm6 md6>
+                            <v-text-field label="First name" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12 sm6 md6>
+                            <v-text-field label="Last name" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Email" required></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Title" required v-model="title"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12 sm12>
+                            <v-text-field multi-line label="Description" required v-model="descr"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Professor name" required v-model="prof"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Department" required v-model="dep"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12>
+                            <v-text-field label="Major" required v-model="major"></v-text-field>
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                      <small>*indicates required field</small>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn class="blue--text darken-1" flat v-on:click="submitEvent">Submit</v-btn>
+                      <v-btn class="blue--text darken-1" flat v-on:click="dialog = false">Cancel</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-layout>
+              <br>
+            <v-layout row wrap>
             <v-flex xs12 sm6 v-for="project in projects" v-bind:key="project.title">
               <b><div id ="title"> {{project.title}} </div></b>
               <b><div id = "company">{{project.prof_name}} </div></b>
@@ -70,6 +117,10 @@
     max-height: 190px;
     overflow: hidden;
   }
+  #projectBut {
+    background-color: #5A2B81;
+    margin-top: 20px;
+  }
 </style>
 
 <script>
@@ -78,6 +129,11 @@
     data () {
       return {
         projects: [],
+        title: '',
+        descr: '',
+        prof: '',
+        dep: '',
+        major: '',
         singleProjectOp: "/singleProjectOp/:projecturl"
       }
     },
@@ -91,6 +147,26 @@
             self.projects = temp
           }
         )
+      },
+      closeDialog(e) {
+        console.log(e.editdialog)
+        e.editdialog=false
+      },
+      submitEvent() {
+        let self = this
+        axios.post('http://127.0.0.1:8000/projects/create/', {
+          course_id: this.title,
+          description: this.descr,
+          prof_name: this.prof,
+          department: this.dep,
+          major: this.major,
+        }).then(
+          response => {
+            console.log(response)
+            self.fetchEntries()
+         }
+          )
+        this.dialog = false
       },
     },
     created: function(){

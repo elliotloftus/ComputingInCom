@@ -29,7 +29,7 @@
               <div id = "stuDesc">{{award.description}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                  <v-btn flat class="blue--text" :to ="'/singleAwardOp/' + award.id">Read More</v-btn>
+                  <v-btn flat class="blue--text" :to ="'/singleAwards/' + award.id">Read More</v-btn>
                 </v-card-actions>
               </v-flex>
         </v-layout>
@@ -80,7 +80,7 @@
     data () {
       return {
         awards: [],
-        singleAwardOp: "/singleAwardOp/:awardurl"
+        singleAward: "/singleAwards/:awardurl"
       }
     },
     methods: {

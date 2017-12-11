@@ -20,32 +20,19 @@
           </v-container>
         </v-card-media>
       </v-card>
-      <v-layout row-wrap>
-          <v-flex xs6 v-for="fac_exp in fac_exps" v-bind:key="fac_exp.title">
-            <v-card>
-              <v-card-media
-                height = 400 px
-                class="white--text"
-                :src = "require('../assets/travel.jpg')"
-              >     
-          <v-container row justify-center>
-           <v-layout row justify-center>
-            <v-flex offset-xs6> 
-              <v-card class="purpBox" :to ="'/singlefacExp/' + fac_exp.id">
-                <v-card-title primary class>
-                  <h5 id ="expfac"> {{fac_exp.fac_name}}</h5>
-                </v-card-title>
-                <v-card-title primary class>
-                  <h6 id= "expTitle"> {{fac_exp.title}}</h6>
-               </v-card-title>
-              </v-card>
-            </v-flex>
-           </v-layout>
-          </v-container>
-          </v-card-media>
-          </v-card>
-        </v-flex>
-      </v-layout>
+      <v-card>
+        <v-layout row wrap>
+            <v-flex xs12 sm6 v-for="fac_scholar in fac_scholars" v-bind:key="fac_scholar.title">
+              <b><div id ="title"> {{fac_scholar.fac_name}} </div></b>
+              <b><div id = "department">{{fac_scholar.department}} </div></b>
+              <div id = "fac_desc">{{fac_scholar.description}} </div>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                  <v-btn flat class="blue--text" :to ="'/singlefac_scholars/' + fac_scholar.id">Read More</v-btn>
+                </v-card-actions>
+              </v-flex>
+        </v-layout>
+      </v-card>
     </v-flex>
   </v-layout>
 </template>
@@ -59,4 +46,55 @@
     background-color: #5A2B81!important;
     color: white!important;
   }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #fac_name {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #department { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #fac_desc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+  }
+  #singlev{
+   margin-top: 100px;
+ }
 </style>
+  
+<script>
+  import axios from 'axios'
+  export default {
+    data () {
+      return {
+        fac_scholars: [],
+        singlefacultyscholar: "/singlefacultyscholar/:facultyscholarurl"
+      }
+    },
+    methods: {
+      fetchEntries() {
+        let self = this
+        axios.get('http://127.0.0.1:8000/faclscholars/').then(
+          response => {
+            console.log(response)
+            let temp = response.data
+            self.fac_scholars = temp
+          }
+        )
+      },
+    },
+    created: function(){
+      this.fetchEntries()
+    }
+  }
+</script>
+
