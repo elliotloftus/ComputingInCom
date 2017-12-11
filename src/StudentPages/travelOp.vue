@@ -138,7 +138,7 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/travels/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/travels').then(
           response => {
             console.log(response)
             let temp = response.data

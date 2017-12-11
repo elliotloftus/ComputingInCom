@@ -40,6 +40,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        <v-layout row justify-center>
+          <v-btn id="homeBut" :to="students.url">Learn More</v-btn>
+        </v-layout>
         </div>
       </v-flex>
     </v-layout>
@@ -55,6 +58,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        <v-layout row justify-center>
+          <v-btn id="homeBut" :to="faculty.url">Learn More</v-btn>
+        </v-layout>
         </div>
       </v-flex>
       <v-flex xs7>
@@ -90,6 +96,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        <v-layout row justify-center>
+          <v-btn id="homeBut" :to="community.url">Learn More</v-btn>
+        </v-layout>
         </div>
       </v-flex>
       </v-layout>
@@ -105,6 +114,9 @@
         <div class = "homeText">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
+        <v-layout row justify-center>
+          <v-btn id="homeBut" :to="courses.url">Learn More</v-btn>
+        </v-layout>
         </div>
       </v-flex>
         <v-flex xs7>
@@ -125,7 +137,10 @@
 export default {
   data() {
     return {
-      courses: {title: 'Learn More', url : '/studentCourses'},
+      students: {title: 'Learn More', url : "/students"},
+      faculty: {title: 'Learn More', url : "/faculty"},
+      community: {title: 'Learn More', url : "/community"},
+      courses: {title: 'Learn More', url : '/courses'},
       comp: {
         src: require('@/assets/comp.jpg')
       },
@@ -155,5 +170,10 @@ export default {
   }
   #homeHalfText {
     margin-top: 25%;
+  }
+  #homeBut {
+    background-color: #5A2B81;
+    color: white;
+    margin-top: 20px;
   }
 </style>
