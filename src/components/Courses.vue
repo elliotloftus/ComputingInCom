@@ -43,7 +43,7 @@
         </v-card-title>
         <v-layout row justify-center>
           <v-dialog v-model="dialog" persistent width="50%">
-            <v-btn  color="black" dark slot="activator">Suggest a Course</v-btn>
+            <v-btn  id="courseBut" dark slot="activator">Suggest a Course</v-btn>
               <v-card>
                 <v-card-title>
                   <span class="headline">Suggest a Course</span>
@@ -136,6 +136,10 @@
   #favorite {
     margin-right: 30px;
     margin-left: 20px;
+  }
+  #courseBut {
+    background-color:#5A2B81;
+    color: white;
   }
 </style>
 

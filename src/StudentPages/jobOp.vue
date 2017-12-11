@@ -24,18 +24,9 @@
         <v-layout row wrap>
             <v-flex xs12 sm6 v-for="job in jobs" v-bind:key="job.title">
               <b><div id ="title"> {{job.title}} </div></b>
-              <b><div id = "employer">{{job.employer}} </div></b>
+              <b><span id = "label">Employer: </span><span id = "employer">{{job.employer}}</span></b>
               <div id = "jobDesc">{{job.job_description}} </div>
               <v-card-actions>
-                <v-btn icon class="red--text">
-                  <v-icon medium>fa-reddit</v-icon>
-                </v-btn>
-                <v-btn icon class="light-blue--text">
-                  <v-icon medium>fa-twitter</v-icon>
-                </v-btn>
-                <v-btn icon class="blue--text text--darken-4">
-                  <v-icon medium>fa fa-facebook-official</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
                   <v-btn flat class="blue--text" :to ="'/singleJobOp/' + job.id">Read More</v-btn>
                 </v-card-actions>
@@ -62,11 +53,15 @@
     margin-right: 30px;
   }
   #employer { 
-    margin-left: 30px;
     color: #5A2B81;
     text-transform: uppercase;
     margin-right: 20px;
   }
+  #label { 
+    margin-left: 30px;
+    color: black;
+  }
+  
   #jobDesc {
     margin-left: 30px;
     margin-right: 30px;
