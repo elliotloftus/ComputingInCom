@@ -20,7 +20,13 @@
           </v-container>
         </v-card-media>
       </v-card>
-      <upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
+      <form method='post' action='Interns.php' enctype ='multipart/form-data'>
+      <!--<upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
+      <v-btn v-on:click.native='submitForm'>Submit</v-btn>-->
+      <a href='/public_html/pdfForms/example.pdf'>Download</a>
+      <input type='file' name='app'>
+      <input type='submit' name='submit' value = 'Upload'>
+      </form>
     </v-flex>
   </v-layout>
 </template>
@@ -37,6 +43,7 @@
 </style>
 
 <script>
+import axios from 'axios';
 import UploadButton from '../components/uploadButton'
 export default {
   components: {
@@ -56,12 +63,7 @@ export default {
       let data = new FormData()
       data.append('file', this.file)
       let xhr = new XMLHttpRequest()
-      xhr.addEventListener('readystatechange', function () {
-        if (this.readyState === 4) {
-          console.log(this.responseText)
-        }
-      })
-      xhr.open('POST', 'http://localhost:8080/YOUR_API_ENDPOINT')
+      xhr.open('POST', 'Interns.php', true)
       console.log(xhr)
       xhr.send(data)
     }
