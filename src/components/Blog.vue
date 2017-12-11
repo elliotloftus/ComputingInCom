@@ -89,11 +89,11 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/blogs/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/blogs').then(
           response => {
             console.log(response)
             let temp = response.data
-            temp.forEach(obj => {obj.created_at = self.getEventMonth(obj.created_at)})  
+            //temp.forEach(obj => {obj.created_at = self.getEventMonth(obj.created_at)})  
             self.blogs = temp
           }
         )
@@ -104,7 +104,7 @@
       },
       submitBlog() {
         let self = this
-        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/blogs/create', {
           title: this.title,
           description: this.body,
           author: this.author,

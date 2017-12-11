@@ -169,7 +169,7 @@
       },
       submitEvent() {
         let self = this
-        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/courses/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/courses/create', {
           course_id: this.title,
           description: this.descr,
           prof_name: this.prof,
