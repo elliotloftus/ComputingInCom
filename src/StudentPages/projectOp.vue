@@ -68,7 +68,7 @@
                 </v-dialog>
               </v-layout>
               <br>
-            <v-layout row wrap>
+        <v-layout row wrap>
             <v-flex xs12 sm6 v-for="project in projects" v-bind:key="project.title">
               <b><div id ="title"> {{project.title}} </div></b>
               <b><div id = "company">{{project.prof_name}} </div></b>
@@ -84,7 +84,6 @@
     </v-flex>
   </v-layout>
 </template>
-
 <style>
   .secTierTitle {
     margin: auto;
@@ -129,6 +128,7 @@
     data () {
       return {
         projects: [],
+        dialog: false,
         title: '',
         descr: '',
         prof: '',
@@ -140,7 +140,7 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://127.0.0.1:8000/projects/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/projects').then(
           response => {
             console.log(response)
             let temp = response.data
@@ -154,8 +154,8 @@
       },
       submitEvent() {
         let self = this
-        axios.post('http://127.0.0.1:8000/projects/create/', {
-          course_id: this.title,
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/projects/create', {
+          title: this.title,
           description: this.descr,
           prof_name: this.prof,
           department: this.dep,

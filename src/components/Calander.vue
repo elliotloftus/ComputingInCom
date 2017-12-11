@@ -187,7 +187,7 @@
   methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://127.0.0.1:8000/eventfeeds/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/eventfeeds').then(
           response => {
             console.log(response)
             let temp = response.data
@@ -232,7 +232,7 @@
       },
       submitEvent() {
         let self = this
-        axios.post('http://127.0.0.1:8000/eventfeeds/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/eventfeeds/create', {
           title: this.title,
           description: this.body,
           date: this.date,

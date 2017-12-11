@@ -171,7 +171,7 @@
       },
       submitJob() {
         let self = this
-        axios.post('http://127.0.0.1:8000/jobs/create/', {
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/jobs/create', {
           title: this.jobTitle,
           description: this.jobDesc,
           employer: this.employer,

@@ -20,7 +20,7 @@
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://127.0.0.1:8000/stuexperiences/' + this.studentExpurl).then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/stuexperiences/' + this.studentExpurl).then(
           response => {
             console.log(response)
             let temp = response.data
