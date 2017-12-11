@@ -5,7 +5,7 @@
           <v-card-media
             height = 700 px
             class="white--text"
-            :src = "require('../assets/comp.jpg')"
+            v-bind:src=comp.src
           >
         <v-container row justify-center>
           <v-layout row justify-center>
@@ -24,7 +24,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('../assets/students.jpg')"
+            :src = "require('@/assets/students.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -62,7 +62,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('../assets/faculty2.jpg')"
+            :src = "require('@/assets/faculty2.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -74,7 +74,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('../assets/community.jpg')"
+            :src = "require('@/assets/community.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -112,7 +112,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('../assets/presentation.jpg')"
+            :src = "require('@/assets/presentation.jpg')"
           >
           </v-card-media>
         </v-card> 
@@ -126,7 +126,10 @@ export default {
   data() {
     return {
       courses: {title: 'Learn More', url : '/studentCourses'},
-    }
+      comp: {
+        src: require('@/assets/comp.jpg')
+      },
+   }
     }
   }
 </script>
