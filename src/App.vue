@@ -53,9 +53,9 @@
         >
         <v-btn flat icon color = "black" dark slot="activator"><v-icon>account_circle</v-icon></v-btn>
           <v-list>
-            <v-list-tile v-for="item in logInPages" :key="item.title" v-on:click="getUrl">
+            <v-list-tile v-for="item in logInPages" :key="item.title" href='http://phplaravel-124529-356307.cloudwaysapps.com/'>
               <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile>
+            </v-list-tile>s
           </v-list>
         </v-card>
       </v-menu>
