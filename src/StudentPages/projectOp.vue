@@ -84,7 +84,6 @@
     </v-flex>
   </v-layout>
 </template>
-
 <style>
   .secTierTitle {
     margin: auto;
@@ -117,6 +116,10 @@
     max-height: 190px;
     overflow: hidden;
   }
+  #projectBut {
+    background-color: #5A2B81;
+    margin-top: 20px;
+  }
 </style>
 
 <script>
@@ -125,19 +128,45 @@
     data () {
       return {
         projects: [],
+        dialog: false,
+        title: '',
+        descr: '',
+        prof: '',
+        dep: '',
+        major: '',
         singleProjectOp: "/singleProjectOp/:projecturl"
       }
     },
     methods: {
       fetchEntries() {
         let self = this
-        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/projects/').then(
+        axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/projects').then(
           response => {
             console.log(response)
             let temp = response.data
             self.projects = temp
           }
         )
+      },
+      closeDialog(e) {
+        console.log(e.editdialog)
+        e.editdialog=false
+      },
+      submitEvent() {
+        let self = this
+        axios.post('http://phplaravel-124529-356307.cloudwaysapps.com/projects/create', {
+          title: this.title,
+          description: this.descr,
+          prof_name: this.prof,
+          department: this.dep,
+          major: this.major,
+        }).then(
+          response => {
+            console.log(response)
+            self.fetchEntries()
+         }
+          )
+        this.dialog = false
       },
     },
     created: function(){
