@@ -10,7 +10,7 @@
           <v-container row justify-right>
            <v-layout row justify-right>
             <v-flex offset-xs7> 
-              <v-card class = "purpBox">
+              <v-card class = "purpBox9">
                 <v-card-title primary class>
                   <h3 class="secTierTitle">Faculty Experiences</h3>
                </v-card-title>
@@ -152,7 +152,7 @@
     height: 50%;
     font-family: 'Quattrocento Sans', sans-serif;
   }
-  .purpBox {
+  .purpBox9 {
     background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }

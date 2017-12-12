@@ -9,7 +9,7 @@
         >
          <v-container row justify-right>
            <v-layout row justify-right>
-            <v-card class="purpBox">
+            <v-card class="purpBox1">
               <v-card-title primary class>
                <h3 class="CinCTitle">CALENDAR</h3>
                </v-card-title>
@@ -255,7 +255,7 @@
 </script>
 
 <style>
-  .purpBox {
+  .purpBox1 {
     background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }

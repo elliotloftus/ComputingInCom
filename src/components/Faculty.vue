@@ -9,7 +9,7 @@
         >
          <v-container row justify-left>
            <v-layout row justify-left>
-            <v-card class="purpBox">
+            <v-card class="purpBox5">
               <v-card-title primary class>
                <h3 class="CinCTitle"> CINC FACULTY</h3>
                </v-card-title>
@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style>
-  .purpBox {
+  .purpBox5 {
     background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }
