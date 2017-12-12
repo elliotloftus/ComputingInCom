@@ -32,49 +32,6 @@
               <b><div id = "prof">{{course.prof_name}} </div></b>
               <b><div id = "department">{{course.department}} </div></b>
               <div id = "desc">{{course.description}} </div>
-                    <v-layout row justify-left>
-                          <v-dialog v-model="courses.editdialog" persistent width="50%">
-                            <v-btn slot="activator">Edit This Entry</v-btn>
-                            <v-card>
-                              <v-card-title>
-                                <span class="headline">Edit This Entry</span>
-                              </v-card-title>
-                              <v-card-text>
-                                <v-container grid-list-md>
-                                  <v-layout wrap>
-                                    <v-flex xs12 sm6 md6>
-                                      <v-text-field label="First name" required></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12 sm6 md6>
-                                      <v-text-field label="Last name" required></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12>
-                                      <v-text-field label="Email" required></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12>
-                                      <v-text-field label="Title" required v-model="course.course_id"></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12>
-                                      <v-text-field label="Professor" required v-model="course.prof_name"></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12>
-                                      <v-text-field label="Department" required v-model="course.department"></v-text-field>
-                                    </v-flex>
-                                    <v-flex xs12 sm12>
-                                      <v-text-field multi-line label="Description" required v-model="course.description"></v-text-field>
-                                    </v-flex>
-                                  </v-layout>
-                                </v-container>
-                                <small>*indicates required field</small>
-                              </v-card-text>
-                              <v-card-actions>
-                                <v-spacer></v-spacer>
-                                <v-btn class="blue--text darken-1" flat v-on:click="updateEntry(course.course_id, course.prof_name, course.department, course.description)">Update</v-btn>
-                                <v-btn class="blue--text darken-1" flat v-on:click="closeDialog(courses)">Cancel</v-btn>
-                              </v-card-actions>
-                            </v-card>
-                          </v-dialog>
-              </v-layout>
             </v-flex>
         </v-layout>
       </v-card>
@@ -231,31 +188,6 @@
           )
         this.dialog = false
       },
-    updateEntry(id, course_id, descr, prof, dep) {
-      console.log('called updateEntry')
-      let self = this
-      axios.put('http://phplaravel-124529-356307.cloudwaysapps.com/courses/update/' + id, {
-          course_id: course_id,
-          description: descr,
-          prof_name: prof,
-          department: dep,
-      }).then(
-        response => {
-          console.log(response)
-          self.fetchEntries()
-        }
-        )
-    },
-    deleteEntry(id) {
-      console.log(id)
-      let self = this
-      axios.delete('http://phplaravel-124529-356307.cloudwaysapps.com/courses' + id).then(
-        response => {
-          self.deletealert = true
-          self.fetchEntries()
-        }
-      )
-    }
   },
     created: function(){
       this.fetchEntries()
