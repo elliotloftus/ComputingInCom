@@ -1,13 +1,16 @@
 
 <template>
   <v-app light>
-    <head> <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:300|Quattrocento+Sans" rel="stylesheet"> </head>
+    <head> 
+        <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:300|Quattrocento+Sans" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
       <v-toolbar
         fixed
         color="white"
         dense
         >
-      <v-toolbar-title class ="homeTitle">Furman @CinC</v-toolbar-title>
+      <v-toolbar-title class ="homeTitle"><a href="home" style="color: #5A2B81; text-decoration: none;"> Furman @CinC</a></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat color = "black" :to = "home.url" > {{home.title}} </v-btn>
@@ -76,7 +79,15 @@
       </v-content>   
     </main>
     <v-footer class="pa-3">
-      I don't know what should go in the footer
+        <v-layout row justify-center>
+            <div class="social">
+                <h4> Connect with us! </h4>
+                <a href="https://www.facebook.com/Furman-University-Computer-Science-130685927004923/"target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/FurmanCompSci"target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/furmancompsci/"target="_blank" class="fa fa-instagram"></a>
+                <h6> www.cs.furman.edu/CinC </h6>
+            </div>
+        </v-layout>
     </v-footer>
   </v-app>
 </template>
@@ -112,7 +123,7 @@
         facultyPages: [
           {title: 'Faculty Experiences', url : "/facultyExperiences"},
           {title: 'Faculty Scholars', url : "/facultyScholars"},
-          {title: 'Fellow Program', url : "/fellowProgram"},
+          {title: 'Fellows Program', url : "/fellowProgram"},
         ],
         communityPages: [
           {title: 'Funded Intern Application', url : "/fundedIntern"},
@@ -135,6 +146,62 @@
 
 <style>
   .homeTitle {
-    color: #5A2B81 
+    color: #5A2B81 !important 
   }
+
+  .fa {
+    text-align: center!important;
+    padding: 20px!important;
+    margin: 9px;
+    font-size: 25px!important;
+    width: 60px!important;
+    height: 60px;
+    text-decoration: none;
+  }
+
+  /* Add a hover effect if you want */
+  .fa:hover {
+      opacity: 0.7;
+  }
+
+  /* Set a specific color for each brand */
+
+  /* Facebook */
+  .fa-facebook {
+      background: #3B5998;
+      color: #ffffff!important;
+  }
+
+  /* Twitter */
+  .fa-twitter {
+      background: #55ACEE;
+      color: #ffffff!important;
+      text-align: center!important;
+      align-content: center!important;
+  }
+
+  .fa-instagram {
+     background: #cd486b;
+     color: white!important;
+  }
+
+  h4 {
+    font-family: 'Quattrocento Sans', sans-serif;
+  }
+
+  h6 {
+    font-family: 'Quattrocento Sans', sans-serif;
+    margin-top: 10px;
+  }
+
+  .social{
+    margin-top: 10px;
+  }
+
+  .pa-3 {
+    background: #5A2B81!important;
+    color: white!important;
+  }
+
+
 </style>
