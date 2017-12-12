@@ -21,7 +21,6 @@
     <div>la</div>
     <div>a</div>
     <div>a</div>
-    <v-btn v-on:click="viewInfo">call viewInfo</v-btn>
     <div>{{ name }}</div>
     <div>{{ email }}</div>
   </v-card>
@@ -43,12 +42,13 @@
         email: ''
       }
     },
-    method: {
+    methods: {
       fetchEntries() {
-          axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/myCinc').then(
+          axios.get('http://phplaravel-124529-356307.cloudwaysapps.com/dump').then(
             response => {
               console.log(response)
-              this.info = response.data
+              let temp = response.data
+              self.info = temp
           }
         )
       },
@@ -63,6 +63,9 @@
          }
           )
       },
+    },
+    created: function(){
+      this.fetchEntries()
     }
   }
 </script>
