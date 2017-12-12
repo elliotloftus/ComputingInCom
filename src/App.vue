@@ -192,6 +192,7 @@
   h6 {
     font-family: 'Quattrocento Sans', sans-serif;
     margin-top: 10px;
+    text-align: center;
   }
 
   .social{
