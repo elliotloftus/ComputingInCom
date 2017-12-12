@@ -47,7 +47,7 @@
       </v-flex>
     </v-layout>
     <v-layout row-wrap>
-      <v-flex xs5>
+      <v-flex xs12 sm5>
         <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
@@ -63,7 +63,7 @@
         </v-layout>
         </div>
       </v-flex>
-      <v-flex xs7>
+      <v-flex xs0 sm7>
         <v-card>
           <v-card-media
             height = 650 px
@@ -75,7 +75,7 @@
       </v-flex>
     </v-layout>
     <v-layout row-wrap>
-      <v-flex xs7>
+      <v-flex xs0 sm7>
         <v-card>
           <v-card-media
             height = 650 px
@@ -85,7 +85,7 @@
           </v-card-media>
         </v-card>
       </v-flex>
-      <v-flex xs5>
+      <v-flex xs12 sm5>
         <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
@@ -103,7 +103,7 @@
       </v-flex>
       </v-layout>
       <v-layout row-wrap>
-       <v-flex xs5>
+       <v-flex xs12 sm5>
         <div id ="homeHalfText">
         <v-card-title primary-title>
           <v-layout row justify-center>
@@ -119,7 +119,7 @@
         </v-layout>
         </div>
       </v-flex>
-        <v-flex xs7>
+        <v-flex xs0 sm7>
           <v-card>
           <v-card-media
             height = 650 px
@@ -162,11 +162,14 @@ export default {
     text-align: justify;
   }
   .test {
-    background: rgba(90, 43, 129, .95)!important;
+    background: rgba(90, 43, 129, .90)!important;
   }
   #mainTitle {
     color:rgba(255, 255, 255, 1);
     font-family: 'Hind Vadodara', sans-serif;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 10px;
   }
   #homeHalfText {
     margin-top: 25%;

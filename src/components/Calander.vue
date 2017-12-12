@@ -256,7 +256,7 @@
 
 <style>
   .purpBox {
-    background-color: #5A2B81!important;
+    background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }
   .CinCTitle {
@@ -264,8 +264,13 @@
     height: 50%;
     color:rgba(255, 255, 255, 1);
     font-family: 'Hind Vadodara', sans-serif;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 4px;
   }
   #calBut {
     background-color: #5A2B81;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
 </style>
