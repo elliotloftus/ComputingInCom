@@ -5,7 +5,7 @@
         <v-card-media
             height = 400 px
             class="white--text"
-            :src = "require('../assets/presentation.jpg')"
+            :src = "require('../assets/calender2.jpeg')"
         >
          <v-container row justify-right>
            <v-layout row justify-right>

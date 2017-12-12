@@ -5,7 +5,7 @@
         <v-card-media
             height = 700px
             class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
+            :src = "require('../assets/fustu.jpg')"
         >
          <v-container row justify-left>
            <v-layout row justify-left>
@@ -24,7 +24,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/students.jpg')"
+            :src = "require('../assets/project.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -60,7 +60,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/jobOp.jpg')"
+            :src = "require('../assets/job.jpeg')"
           >
           </v-card-media>
         </v-card>
@@ -72,7 +72,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/roomPic.jpg')"
+            :src = "require('../assets/stexp.jpeg')"
           >
           </v-card-media>
         </v-card>
@@ -108,7 +108,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/travel.jpg')"
+            :src = "require('../assets/travel.jpeg')"
           >
           </v-card-media>
         </v-card>
@@ -120,7 +120,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/awards.jpg')"
+            :src = "require('../assets/award.jpg')"
           >
           </v-card-media>
         </v-card>

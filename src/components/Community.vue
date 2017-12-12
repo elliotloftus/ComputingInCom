@@ -5,7 +5,7 @@
         <v-card-media
             height = 700px
             class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
+            :src = "require('../assets/community2.jpg')"
         >
          <v-container row justify-left>
            <v-layout row justify-left>
@@ -24,7 +24,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/students.jpg')"
+            :src = "require('../assets/community1.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -64,7 +64,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/jobOp.jpg')"
+            :src = "require('../assets/partnership.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -76,7 +76,7 @@
           <v-card-media
             height = 500 px
             class="white--text"
-            :src = "require('../assets/roomPic.jpg')"
+            :src = "require('../assets/postajob.jpeg')"
           >
           </v-card-media>
         </v-card>

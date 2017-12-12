@@ -24,7 +24,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('@/assets/students.jpg')"
+            :src = "require('@/assets/fustu.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -80,7 +80,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('@/assets/community.jpg')"
+            :src = "require('@/assets/community2.jpg')"
           >
           </v-card-media>
         </v-card>
@@ -124,7 +124,7 @@
           <v-card-media
             height = 650 px
             class="white--text"
-            :src = "require('@/assets/presentation.jpg')"
+            :src = "require('@/assets/courses.jpeg')"
           >
           </v-card-media>
         </v-card> 
