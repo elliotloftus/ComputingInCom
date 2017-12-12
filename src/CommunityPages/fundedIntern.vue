@@ -21,9 +21,7 @@
         </v-card-media>
       </v-card>
       <form method='post' action='Interns.php' enctype ='multipart/form-data'>
-      <!--<upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
-      <v-btn v-on:click.native='submitForm'>Submit</v-btn>-->
-      <a href='pdfForms/example.pdf'>Download</a>
+      <a href='pdfForms/example.pdf'target="_blank">Download</a>
       <input type='file' name='app'>
       <input type='submit' name='submit' value = 'Upload'>
       </form>
