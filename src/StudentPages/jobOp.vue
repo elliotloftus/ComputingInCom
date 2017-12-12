@@ -42,9 +42,10 @@
   .secTierTitle {
     margin: auto;
     height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
   }
   .purpBox {
-    background-color: #5A2B81!important;
+    background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }
   #title {

@@ -21,9 +21,7 @@
         </v-card-media>
       </v-card>
       <form method='post' action='Interns.php' enctype ='multipart/form-data'>
-      <!--<upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
-      <v-btn v-on:click.native='submitForm'>Submit</v-btn>-->
-      <a href='/public_html/pdfForms/example.pdf'>Download</a>
+      <a href='pdfForms/example.pdf'target="_blank">Download</a>
       <input type='file' name='app'>
       <input type='submit' name='submit' value = 'Upload'>
       </form>
@@ -35,9 +33,10 @@
   .secTierTitle {
     margin: auto;
     height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
   }
   .purpBox {
-    background-color: #5A2B81!important;
+    background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
   }
 </style>
