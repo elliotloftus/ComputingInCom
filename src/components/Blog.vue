@@ -59,8 +59,7 @@
        <v-layout row wrap>
             <v-flex xs12 sm6 v-for="blog in blogs" v-bind:key="blog.title">
               <b><div id ="title"> {{blog.title}} </div></b>
-              <b><div id = "author">{{blog.author}} </div></b>
-              <b><div id = "date">{{blog.created_at}} </div></b>
+              <b><div id = "date">{{blog.author}} </div></b>
               <div id = "desc">{{blog.body}} </div>
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -83,7 +82,7 @@
         title: '',
         body: '',
         author: '',
-        singleBlog: "/singleBlogPage/:blogurl"
+        singleBlogPage: "/singleBlog/:blogurl"
       }
     },
     methods: {
@@ -93,7 +92,6 @@
           response => {
             console.log(response)
             let temp = response.data
-            //temp.forEach(obj => {obj.created_at = self.getEventMonth(obj.created_at)})  
             self.blogs = temp
           }
         )

@@ -1,10 +1,14 @@
 <template>
-    <v-card>
-        <br>
-        <br>
-        <b><div id ="title"> {{exp.title}} </div></b>
-        <b><div>{{exp.stu_name}}</div></b>
+  <v-layout row justify-center>
+  <v-flex xs8>
+    <v-card id = "singlev">
+      <b><div id ="title"> {{exp.title}} </div></b>
+      <b><div id = "stu_name">{{exp.stu_name}} </div></b>
+      <b><div id = "major">{{exp.major}} </div></b>
+      <div id = "stuDesc">{{exp.description}} </div>
     </v-card>
+  </v-flex>
+  </v-layout>
 </template>
 
 
@@ -34,3 +38,43 @@
     }
   }
 </script>
+
+<style>
+  .secTierTitle {
+    margin: auto;
+    height: 50%;
+    font-family: 'Quattrocento Sans', sans-serif;
+  }
+  .purpBox {
+    background-color: rgba(90, 43, 129, .90)!important;
+    color: white!important;
+  }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #stu_name {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #major { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #stuDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+  }
+  #favorite {
+    margin-right: 30px;
+    margin-left: 20px;
+  }
+  #expBut {
+    background-color: #5A2B81;
+    margin-top: 20px;
+  }
+</style>

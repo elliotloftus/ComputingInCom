@@ -20,33 +20,19 @@
           </v-container>
           </v-card-media>
         </v-card>
-        <v-layout row-wrap>
-          <v-flex xs6 v-for="exp in exps" v-bind:key="exp.title">
-            <v-card>
-              <v-card-media
-                height = 400 px
-                class="white--text"
-                :src = "require('../assets/travel.jpeg')"
-              >     
-          <v-container row justify-center>
-           <v-layout row justify-center>
-            <v-flex offset-xs6> 
-              <v-card class="purpBox" :to ="'/singleStudentExp/' + exp.id">
-                <v-card-title primary class>
-                  <h5 id ="expStudent"> {{exp.stu_name}}</h5>
-                </v-card-title>
-                <v-card-title primary class>
-                  <h6 id= "expTitle"> {{exp.title}}</h6>
-               </v-card-title>
-              </v-card>
-            </v-flex>
-           </v-layout>
-          </v-container>
-            </v-card-media>
-          </v-card>
-        </v-flex>
-      </v-layout>
       <v-card>
+      <v-layout row wrap>
+            <v-flex xs12 sm6 v-for="exp in exps" v-bind:key="exp.title">
+              <b><div id ="title"> {{exp.title}} </div></b>
+              <b><div id = "stu_name">{{exp.stu_name}} </div></b>
+              <b><div id = "major">{{exp.major}} </div></b>
+              <div id = "stuDesc">{{exp.description}} </div>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                  <v-btn flat class="blue--text" :to ="'/singleStudentExp/' + exp.id">Read More</v-btn>
+                </v-card-actions>
+              </v-flex>
+        </v-layout>
         <v-layout row justify-center>
           <v-dialog v-model="dialog" persistent width="50%">
             <v-btn id="expBut" dark slot="activator">Submit a student Experience</v-btn>
@@ -100,9 +86,6 @@
 </template>
 
 <style>
-  #greyscale:hover{
-    background-color: black
-  }
   .secTierTitle {
     margin: auto;
     height: 50%;
@@ -111,6 +94,30 @@
   .purpBox15 {
     background-color: rgba(90, 43, 129, .90)!important;
     color: white!important;
+  }
+  #title {
+    margin-left: 30px;
+    font-size: 24px;
+    margin-right: 30px;
+  }
+  #stu_name {
+   margin-left: 30px;
+    margin-right: 30px;
+  }
+  #major { 
+    margin-left: 30px;
+    color: #5A2B81;
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+  #stuDesc {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: justify;
+  }
+  #favorite {
+    margin-right: 30px;
+    margin-left: 20px;
   }
   #expBut {
     background-color: #5A2B81;
