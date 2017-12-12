@@ -20,6 +20,8 @@
           </v-container>
         </v-card-media>
       </v-card>
+      <upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
+      <v-btn v-on:click.native='submitForm'>Submit</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -35,3 +37,32 @@
     color: white!important;
   }
 </style>
+
+<script>
+import axios from 'axios';
+import UploadButton from '../components/uploadButton'
+export default {
+  components: {
+    UploadButton
+  },
+  data () {
+    return {
+      file: null
+    }
+  },
+  methods: {
+    fileSelectedFunc (file) {
+      console.log(file)
+      this.file = file
+    },
+    submitForm () {
+      let data = new FormData()
+      data.append('file', this.file)
+      let xhr = new XMLHttpRequest()
+      xhr.open('POST', 'Tchfellows.php', true)
+      console.log(xhr)
+      xhr.send(data)
+    }
+  }
+}
+</script>
