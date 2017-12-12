@@ -23,7 +23,7 @@
       <form method='post' action='Interns.php' enctype ='multipart/form-data'>
       <!--<upload-button title="Browse" :selectedCallback="fileSelectedFunc"></upload-button>
       <v-btn v-on:click.native='submitForm'>Submit</v-btn>-->
-      <a href='/public_html/pdfForms/example.pdf'>Download</a>
+      <a href='pdfForms/example.pdf'>Download</a>
       <input type='file' name='app'>
       <input type='submit' name='submit' value = 'Upload'>
       </form>
