@@ -26,7 +26,7 @@
               <v-card-media
                 height = 400 px
                 class="white--text"
-                :src = "require('../assets/travel.jpg')"
+                :src = "require('../assets/fellow.jpg')"
               >     
           <v-container row justify-center>
            <v-layout row justify-center>

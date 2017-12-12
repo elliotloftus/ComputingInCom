@@ -6,7 +6,7 @@
         <v-card-media
             height = 700px
             class="white--text"
-            :src = "require('../assets/studentHome.jpg')"
+            :src = "require('../assets/courses.jpeg')"
         >
          <v-container row justify-right>
            <v-layout row justify-right>
